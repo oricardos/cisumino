@@ -46,3 +46,12 @@
 // if (input) {
 //   input.addEventListener("keyup", totalMudou);
 // }
+// 0202 String, Number e Boolean
+const frase = "Isso é uma string";
+const numero = 10;
+const boolean = true;
+console.log(typeof frase); // string
+console.log(typeof numero); // number 
+if (typeof frase === "string") {
+    console.log("É uma string");
+}
