@@ -59,13 +59,34 @@
 // }
 
 // 0202 String, Number e Boolean
-const frase = "Isso é uma string";
-const numero = 10;
-const boolean = true;
+// const frase = "Isso é uma string";
+// const numero = 10;
+// const boolean = true;
 
-console.log(typeof frase); // string
-console.log(typeof numero); // number 
+// console.log(typeof frase); // string
+// console.log(typeof numero); // number 
 
-if (typeof frase === "string") {
-  console.log("É uma string");
-}
+// if (typeof frase === "string") {
+//   console.log("É uma string");
+// }
+
+// 0203 Union Types 1
+// let total: string | number = 200;
+// total = '400';
+
+// // função que verifica se está recebendo um número
+// function isNumber(value: string | number):boolean {
+//   if (typeof value === "number"){
+//     return true;
+//   }
+//   else {
+//     return false;
+//   }
+// }
+
+// console.log(isNumber(200)) //return true
+// console.log(isNumber('200')) //return false
+
+// const button = document.querySelector("button");
+
+// button?.click(); // seria a mesma coisa que if (button){...}, porém utilizar optional chaning é o js mais atual
