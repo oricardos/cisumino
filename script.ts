@@ -90,3 +90,14 @@
 // const button = document.querySelector("button");
 
 // button?.click(); // seria a mesma coisa que if (button){...}, porém utilizar optional chaning é o js mais atual
+
+//exercício
+function toNumber(value: number | string): number{
+  if (typeof value === "string"){
+    return Number(value);
+  } else if (typeof value === "number") {
+    return value;
+  } else {
+    throw new Error("value deve ser uma string ou um número")
+  }
+}
