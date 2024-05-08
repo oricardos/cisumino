@@ -64,7 +64,7 @@
 // const boolean = true;
 
 // console.log(typeof frase); // string
-// console.log(typeof numero); // number 
+// console.log(typeof numero); // number
 
 // if (typeof frase === "string") {
 //   console.log("É uma string");
@@ -103,22 +103,37 @@
 // }
 
 //0204 Types e Interfaces 1
-type TypeProduct = {
-  name: string;
-  price: number;
-  haveStock: boolean;
+// type TypeProduct = {
+//   name: string;
+//   price: number;
+//   haveStock: boolean;
+// }
+
+// interface InterfaceProduct {
+//   name: string;
+//   price: number;
+//   haveStock: boolean;
+// }
+
+// function showProduct(product: InterfaceProduct){
+//   console.log(product.name);
+//   console.log(product.price);
+//   console.log(product.haveStock);
+// }
+
+// showProduct({name: "celular", price: 2000, haveStock: true});
+
+// 0205 Arrays 1
+const numeros = [1, 3, 6, 7, 20, 300, 230, 2, 5, 4];
+const valores = [1, 3, '6', 7, 20, '300', '230']
+
+function maiorQue10(data: Array<number>): Array<number> {
+    return data.filter(n => n > 10)
 }
 
-interface InterfaceProduct {
-  name: string;
-  price: number;
-  haveStock: boolean;
+function filtraValores(data: Array<number | string>) {
+    return data.filter(n => typeof n === 'number')
 }
 
-function showProduct(product: InterfaceProduct){
-  console.log(product.name);
-  console.log(product.price);
-  console.log(product.haveStock);
-}
-
-showProduct({name: "celular", price: 2000, haveStock: true});
+console.log(maiorQue10(numeros))
+console.log(filtraValores(valores))
