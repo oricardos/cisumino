@@ -124,16 +124,68 @@
 // showProduct({name: "celular", price: 2000, haveStock: true});
 
 // 0205 Arrays 1
-const numeros = [1, 3, 6, 7, 20, 300, 230, 2, 5, 4];
-const valores = [1, 3, '6', 7, 20, '300', '230']
+// const numeros = [1, 3, 6, 7, 20, 300, 230, 2, 5, 4];
+// const valores = [1, 3, '6', 7, 20, '300', '230']
 
-function maiorQue10(data: Array<number>): Array<number> {
-    return data.filter(n => n > 10)
+// function maiorQue10(data: Array<number>): Array<number> {
+//     return data.filter(n => n > 10)
+// }
+
+// function filtraValores(data: Array<number | string>) {
+//     return data.filter(n => typeof n === 'number')
+// }
+
+// console.log(maiorQue10(numeros))
+// console.log(filtraValores(valores))
+
+
+// 0205 Arrays 2 exercício
+async function fetchCursos() {
+  const response = await fetch("https://api.origamid.dev/json/cursos.json");
+  const data = await response.json();
+  mostrarCurso(data);
 }
 
-function filtraValores(data: Array<number | string>) {
-    return data.filter(n => typeof n === 'number')
+fetchCursos();
+
+interface Curso {
+  aulas: number;
+  gratuito: boolean;
+  horas: number;
+  idAulas: Array<number>;
+  nivel: "iniciante" | "avancado";
+  nome: string;
+  tags: Array<string>;
 }
 
-console.log(maiorQue10(numeros))
-console.log(filtraValores(valores))
+function mostrarCurso(cursos: Array<Curso>) {
+  cursos.forEach((curso, index) => {
+    console.log(curso)
+    let color;
+    if (curso.nivel === 'avancado'){
+        color = 'red'
+    } else {
+        color = 'blue'
+    }
+    document.body.innerHTML += `
+    <div>
+    <h1 style="color: ${color}":>Curso ${index + 1} - ${curso.nome}</h1>
+    <p>Aulas: ${curso.aulas}</p>
+    <p>Gratuito?  ${curso.gratuito ? "sim" : "não"}</p>
+    <p>Horas  - ${curso.horas}h</p>
+    <p>Tags: ${curso.tags.join(', ')}</p>
+    </div>
+    `;
+  });
+
+  return cursos;
+}
+
+// const updateInfos = (name:string, classes:number, hours:number, nivel:string) => {
+//
+
+//   courseName && courseName.textContent = name;
+//   courseHours && courseHours.textContent += classes;
+//   courseClasses && courseClasses.textContent += hours;
+//   courseNivel && courseNivel.textContent += nivel;
+// };
