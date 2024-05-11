@@ -148,14 +148,63 @@
 // }
 // 0207 Null e Undefined
 // null
-const button = document.querySelector('button');
-if (button) {
-    button.click();
+// const button = document.querySelector('button');
+// if (button){
+//   button.click();
+// }
+// // undefined
+// interface Product {
+//   nome?: string;
+// }
+// const jogo: Product = {
+//   nome: "Assassins Creed",
+// }
+// if (jogo.nome) {
+//   jogo.nome.toLocaleLowerCase()
+// }
+// jogo.nome?.toLocaleLowerCase()
+// 0301 Instanceof 1
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/instanceof
+class Produto {
+    nome;
+    preco;
+    constructor(nome, preco) {
+        this.nome = nome;
+        this.preco = preco;
+    }
+    // método
+    precoReal = () => {
+        return `R$ ${this.preco},00`;
+    };
 }
-const jogo = {
-    nome: "Assassins Creed",
-};
-if (jogo.nome) {
-    jogo.nome.toLocaleLowerCase();
+const produto = new Produto("Guerra civil", 100);
+console.log(produto.precoReal());
+console.log(produto instanceof Produto); //true
+class Livro {
+    autor;
+    constructor(autor) {
+        this.autor = autor;
+    }
 }
-jogo.nome?.toLocaleLowerCase();
+class Jogo {
+    jogadores;
+    constructor(jogadores) {
+        this.jogadores = jogadores;
+    }
+}
+function buscaProduto(busca) {
+    if (busca === "O senhor dos anéis") {
+        return new Livro("J. R. R. Tolkien");
+    }
+    if (busca === "Assassins Creed") {
+        return new Jogo(1);
+    }
+    return null;
+}
+const produtoFinal = buscaProduto("O senhor dos anéis");
+if (produtoFinal instanceof Livro) {
+    console.log(produtoFinal.autor);
+}
+if (produtoFinal instanceof Jogo) {
+    console.log(produtoFinal.jogadores);
+}

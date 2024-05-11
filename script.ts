@@ -138,7 +138,6 @@
 // console.log(maiorQue10(numeros))
 // console.log(filtraValores(valores))
 
-
 // 0205 Arrays 2 exercício
 // async function fetchCursos() {
 //   const response = await fetch("https://api.origamid.dev/json/cursos.json");
@@ -184,24 +183,79 @@
 // 0207 Null e Undefined
 
 // null
-const button = document.querySelector('button');
+// const button = document.querySelector('button');
 
-if (button){
-  button.click();
+// if (button){
+//   button.click();
+// }
+
+// // undefined
+
+// interface Product {
+//   nome?: string;
+// }
+
+// const jogo: Product = {
+//   nome: "Assassins Creed",
+// }
+
+// if (jogo.nome) {
+//   jogo.nome.toLocaleLowerCase()
+// }
+
+// jogo.nome?.toLocaleLowerCase()
+
+// 0301 Instanceof 1
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/instanceof
+class Produto {
+  nome: string;
+  preco: number;
+  constructor(nome: string, preco: number) {
+    this.nome = nome;
+    this.preco = preco;
+  }
+  // método
+  precoReal = () => {
+    return `R$ ${this.preco},00`;
+  };
 }
 
-// undefined
+const produto = new Produto("Guerra civil", 100);
 
-interface Product {
-  nome?: string;
+console.log(produto.precoReal());
+
+console.log(produto instanceof Produto); //true
+
+class Livro {
+  autor: string;
+  constructor(autor: string) {
+    this.autor = autor;
+  }
 }
 
-const jogo: Product = {
-  nome: "Assassins Creed",
+class Jogo {
+  jogadores: number;
+  constructor(jogadores: number) {
+    this.jogadores = jogadores;
+  }
 }
 
-if (jogo.nome) {
-  jogo.nome.toLocaleLowerCase()
+function buscaProduto(busca: string) {
+  if (busca === "O senhor dos anéis") {
+    return new Livro("J. R. R. Tolkien");
+  }
+  if (busca === "Assassins Creed") {
+    return new Jogo(1);
+  }
+  return null;
 }
 
-jogo.nome?.toLocaleLowerCase()
+const produtoFinal = buscaProduto("O senhor dos anéis");
+
+if (produtoFinal instanceof Livro) {
+  console.log(produtoFinal.autor);
+}
+
+if (produtoFinal instanceof Jogo){
+  console.log(produtoFinal.jogadores)
+}
