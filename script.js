@@ -110,38 +110,52 @@
 // console.log(maiorQue10(numeros))
 // console.log(filtraValores(valores))
 // 0205 Arrays 2 exercício
-async function fetchCursos() {
-    const response = await fetch("https://api.origamid.dev/json/cursos.json");
-    const data = await response.json();
-    mostrarCurso(data);
+// async function fetchCursos() {
+//   const response = await fetch("https://api.origamid.dev/json/cursos.json");
+//   const data = await response.json();
+//   mostrarCurso(data);
+// }
+// fetchCursos();
+// interface Curso {
+//   aulas: number;
+//   gratuito: boolean;
+//   horas: number;
+//   idAulas: Array<number>;
+//   nivel: "iniciante" | "avancado";
+//   nome: string;
+//   tags: Array<string>;
+// }
+// function mostrarCurso(cursos: Array<Curso>) {
+//   cursos.forEach((curso, index) => {
+//     console.log(curso)
+//     let color;
+//     if (curso.nivel === 'avancado'){
+//         color = 'red'
+//     } else {
+//         color = 'blue'
+//     }
+//     document.body.innerHTML += `
+//     <div>
+//     <h1 style="color: ${color}":>Curso ${index + 1} - ${curso.nome}</h1>
+//     <p>Aulas: ${curso.aulas}</p>
+//     <p>Gratuito?  ${curso.gratuito ? "sim" : "não"}</p>
+//     <p>Horas  - ${curso.horas}h</p>
+//     <p>Tags: ${curso.tags.join(', ')}</p>
+//     </div>
+//     `;
+//   });
+//   return cursos;
+// }
+// 0207 Null e Undefined
+// null
+const button = document.querySelector('button');
+if (button) {
+    button.click();
 }
-fetchCursos();
-function mostrarCurso(cursos) {
-    cursos.forEach((curso, index) => {
-        console.log(curso);
-        let color;
-        if (curso.nivel === 'avancado') {
-            color = 'red';
-        }
-        else {
-            color = 'blue';
-        }
-        document.body.innerHTML += `
-    <div>
-    <h1 style="color: ${color}":>Curso ${index + 1} - ${curso.nome}</h1>
-    <p>Aulas: ${curso.aulas}</p>
-    <p>Gratuito?  ${curso.gratuito ? "sim" : "não"}</p>
-    <p>Horas  - ${curso.horas}h</p>
-    <p>Tags: ${curso.tags.join(', ')}</p>
-    </div>
-    `;
-    });
-    return cursos;
+const jogo = {
+    nome: "Assassins Creed",
+};
+if (jogo.nome) {
+    jogo.nome.toLocaleLowerCase();
 }
-// const updateInfos = (name:string, classes:number, hours:number, nivel:string) => {
-//
-//   courseName && courseName.textContent = name;
-//   courseHours && courseHours.textContent += classes;
-//   courseClasses && courseClasses.textContent += hours;
-//   courseNivel && courseNivel.textContent += nivel;
-// };
+jogo.nome?.toLocaleLowerCase();
